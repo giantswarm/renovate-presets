@@ -1,0 +1,67 @@
+{
+  "extends": [
+    "config:recommended" // https://docs.renovatebot.com/presets-config/#configrecommended
+  ],
+  // The labels to add to the GitHub PRs
+  "labels": ["dependencies", "renovate"],
+  // The dependency dashboard is an issue created in the repo that tracks the
+  // dependencies that Renovate will work againse
+  "dependencyDashboard": true,
+  "assigneesFromCodeOwners": true,
+
+  // These limits are the defaults values but included here for visibility
+  "branchConcurrentLimit": 10,
+  "prConcurrentLimit": 10,
+  "prHourlyLimit": 2,
+
+  "ignorePaths": [
+    ".github/workflows/zz_generated.*",
+    ".github/workflows/codeql-analysis.yml",
+    ".github/workflows/pre_commit_*.yaml"
+  ],
+  "ignoreDeps": [
+    "actions/setup-go",
+    "architect",
+    "github.com/imdario/mergo",
+    "zricethezav/gitleaks-action"
+  ],
+
+  // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
+  "kubernetes": {
+    "fileMatch": ["\\.y[a]?ml$"]
+  }
+
+  "customManagers": [
+    {
+      // Supports various formats where a comment with `repo: ${REPO_NAME}` is on the line
+      // before the version string line
+      "customType": "regex",
+      "fileMatch": [
+        ".*y[a]?ml$",
+        "Dockerfile$",
+        "^Makefile\\..+\\.mk$",
+      ],
+      "matchStrings": [
+        "repo: (?<depName>.*)\n(.+)\\?= v?(?<currentValue>\\S+)\n",
+        "repo: (?<depName>.*)\n(.+)\\/releases\\/download\\/(?<currentValue>.+)\\/.*",
+        "repo: (?<depName>.*)\n(.+)=v?(?<currentValue>\\S+)\n",
+        "repo: (?<depName>.*)\n(.+)VERSION=(?<currentValue>.+)\\/.*",
+        "repo: (?<depName>.*)\n(\\s)*version: (?<currentValue>.*?)\n",
+        "repo: (?<depName>.*)\n(\\s)*version:(\\s)*(?<currentValue>.*?)(\\s)*\n",
+        "repo: (?<depName>.*)\n(\\s*)default: \"?.+:(?<currentValue>.*?)\"?\n",
+      ],
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^\"?v?(?<version>.*)\"?$"
+    },
+    {
+      // Supports matching a version where the datasource and dep name are defined in a comment on the previous line
+      "customType": "regex",
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sARG .+_VER=(?<currentValue>.*)\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    }
+  ],
+
+}
