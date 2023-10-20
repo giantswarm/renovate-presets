@@ -1,0 +1,38 @@
+name: Lint
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  debug_info:
+    name: Debug info
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Print github context JSON
+        run: |
+          cat <<EOF
+          ${{ toJson(github) }}
+          EOF
+  validate:
+    name: Validate
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Setup node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+      - name: Install npm package
+        run: "npm install --global json5"
+      - name: Validate
+        run: |
+          EXIT_CODE=0
+          for f in *.json5; do
+            echo "Validating ${f}"
+            json5 --validate ${f}
+            if [[ "$?" != "0" ]]; then
+              EXIT_CODE=1
+            fi
+          done
+          echo ${EXIT_CODE}
