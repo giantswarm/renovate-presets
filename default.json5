@@ -29,7 +29,7 @@
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
   "kubernetes": {
     "fileMatch": ["\\.y[a]?ml$"]
-  }
+  },
 
   "customManagers": [
     {
