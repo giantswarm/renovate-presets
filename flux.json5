@@ -1,0 +1,8 @@
+{
+  // https://docs.renovatebot.com/modules/manager/flux/
+  "flux": {
+    "fileMatch": [
+      "(?:^|/)gotk-components\\.ya?ml$"
+    ]
+  },
+}
