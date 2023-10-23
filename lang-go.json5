@@ -30,6 +30,18 @@
       "matchPackagePatterns": ["^github.com/giantswarm/apiextensions*"],
       "allowedVersions": ">= 4.0.0"
     },
+    {
+      // Avoid Flux related CRD version updates in Go projects
+      // (contact Team Honeybadger for details)
+      "matchPackagePatterns": [
+        "kustomize.toolkit.fluxcd.io/v1",
+        "source.toolkit.fluxcd.io/v1",
+      ],
+      "enabled": false
+    },
   ],
-  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
+  "postUpdateOptions": [
+    "gomodTidy",
+    "gomodUpdateImportPaths",
+  ],
 }
