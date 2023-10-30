@@ -30,6 +30,13 @@
       "matchPackagePatterns": ["^github.com/giantswarm/apiextensions*"],
       "allowedVersions": ">= 4.0.0"
     },
+    {
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+      ],
+      "automerge": true,
+    },
   ],
   "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
 }
