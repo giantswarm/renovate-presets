@@ -31,5 +31,8 @@
       "allowedVersions": ">= 4.0.0"
     },
   ],
-  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
+  "postUpdateOptions": [
+    "gomodTidy",
+    "gomodUpdateImportPaths",
+  ],
 }
