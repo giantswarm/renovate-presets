@@ -26,6 +26,14 @@
     "zricethezav/gitleaks-action"
   ],
 
+  "packageRules": [
+    {
+      // Force `opsctl` to use strict semver to ignore the old sha-based releases from 2018
+      "matchPackageNames": ["giantswarm/opsctl"],
+      "versioning": "semver"
+    },
+  ],
+
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
   "kubernetes": {
     "fileMatch": ["\\.y[a]?ml$"]
