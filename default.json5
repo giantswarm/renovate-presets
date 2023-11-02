@@ -51,12 +51,12 @@
       ],
       "matchStrings": [
         "repo: (?<depName>.*)\n(.+)\\?= v?(?<currentValue>\\S+)\n",
-        "repo: (?<depName>.*)\n(.+)\\/releases\\/download\\/(?<currentValue>.+)\\/.*",
+        "repo: (?<depName>.*)\n(.+)\\/releases\\/download\\/v?(?<currentValue>.+)\\/.*",
         "repo: (?<depName>.*)\n(.+)=v?(?<currentValue>\\S+)\n",
-        "repo: (?<depName>.*)\n(.+)VERSION=(?<currentValue>.+)\\/.*",
-        "repo: (?<depName>.*)\n(\\s)*version: (?<currentValue>.*?)\n",
-        "repo: (?<depName>.*)\n(\\s)*version:(\\s)*(?<currentValue>.*?)(\\s)*\n",
-        "repo: (?<depName>.*)\n(\\s*)default: \"?.+:(?<currentValue>.*?)\"?\n",
+        "repo: (?<depName>.*)\n(.+)VERSION=v?(?<currentValue>.+)\\/.*",
+        "repo: (?<depName>.*)\n(\\s)*version: v?(?<currentValue>.*?)\n",
+        "repo: (?<depName>.*)\n(\\s)*version:(\\s)*v?(?<currentValue>.*?)(\\s)*\n",
+        "repo: (?<depName>.*)\n(\\s*)default: \"?.+:v?(?<currentValue>.*?)\"?\n",
       ],
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^\"?v?(?<version>.*)\"?$"
