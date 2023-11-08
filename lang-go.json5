@@ -9,6 +9,10 @@
       "groupName": "test libraries"
     },
     {
+      "matchPackagePatterns": ["github.com/aws/aws-sdk-go*"],
+      "groupName": "aws sdk"
+    },
+    {
       "matchPackagePatterns": ["^k8s.io"],
       "groupName": "k8s modules",
       "allowedVersions": "< 0.21.0"
