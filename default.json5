@@ -48,6 +48,7 @@
         ".*y[a]?ml$",
         "Dockerfile$",
         "^Makefile\\..+\\.mk$",
+        ".*\\.tf$",
       ],
       "matchStrings": [
         "repo: (?<depName>.*)\n(.+)\\?= v?(?<currentValue>\\S+)\n",
@@ -56,6 +57,7 @@
         "repo: (?<depName>.*)\n(.+)VERSION=v?(?<currentValue>.+)\\/.*",
         "repo: (?<depName>.*)\n(\\s)*version: v?(?<currentValue>.*?)\n",
         "repo: (?<depName>.*)\n(\\s)*version:(\\s)*v?(?<currentValue>.*?)(\\s)*\n",
+        "repo: (?<depName>.*)\n(\\s)*version\\s*=\\s*"v?(?<currentValue>.*?)".*\n",
         "repo: (?<depName>.*)\n(\\s*)default: \"?.+:v?(?<currentValue>.*?)\"?\n",
       ],
       "datasourceTemplate": "github-releases",
