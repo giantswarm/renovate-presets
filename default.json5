@@ -21,7 +21,6 @@
   ],
   "ignoreDeps": [
     "actions/setup-go",
-    "architect",
     "github.com/imdario/mergo",
     "zricethezav/gitleaks-action"
   ],
