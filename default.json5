@@ -31,6 +31,11 @@
       "matchPackageNames": ["giantswarm/opsctl"],
       "versioning": "semver"
     },
+    {
+      // Allow Renovate to lookup the changelog for architect-orb updates
+      "packageNames": ["architect"],
+      "sourceUrl": "https://github.com/giantswarm/architect-orb/"
+    },
   ],
 
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
