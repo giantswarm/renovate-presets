@@ -1,8 +1,8 @@
 {
   "packageRules": [
     {
-      "matchPackagePatterns": [".*giantswarm.*"],
-      "groupName": "giantswarm modules"
+      "matchPackagePatterns": ["^github.com/giantswarm.*"],
+      "groupName": "Giant Swarm Go modules"
     },
     {
       "matchPackagePatterns": ["github.com/onsi/*"],
