@@ -3,7 +3,7 @@
     {
       "matchPackagePatterns": [".*giantswarm.*"],
       "groupName": "Giant Swarm Go modules",
-      matchManagers": ["gomod"]
+      "matchManagers": ["gomod"]
     },
     {
       "matchPackagePatterns": ["github.com/onsi/*"],
