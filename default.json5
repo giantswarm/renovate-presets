@@ -36,6 +36,11 @@
       "packageNames": ["architect"],
       "sourceUrl": "https://github.com/giantswarm/architect-orb/"
     },
+    {
+      // Allow renovate to lookup the changelog for aws-cli
+      "matchPackageNames": ["amazon/aws-cli"],
+      "sourceUrl": "https://github.com/aws/aws-cli",
+    },
   ],
 
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
