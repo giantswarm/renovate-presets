@@ -50,6 +50,28 @@
 
   "customManagers": [
     {
+      // Supports various formats where a comment with `registry: ${registry url}` is on the line
+      // before the version string line
+      "customType": "regex",
+      "fileMatch": [
+        ".*y[a]?ml$",
+        "Dockerfile$",
+        "^Makefile\\..+\\.mk$",
+      ],
+      "matchStrings": [
+        "registry: (?<depName>.*)\n(.+)\\?= v?(?<currentValue>\\S+)\n",
+        "registry: (?<depName>.*)\n(.+)\\/releases\\/download\\/v?(?<currentValue>.+)\\/.*",
+        "registry: (?<depName>.*)\n(.+)=v?(?<currentValue>\\S+)\n",
+        "registry: (?<depName>.*)\n(.+)VERSION=v?(?<currentValue>.+)\\/.*",
+        "registry: (?<depName>.*)\n(\\s)*version: v?(?<currentValue>.*?)\n",
+        "registry: (?<depName>.*)\n(\\s)*version:(\\s)*v?(?<currentValue>.*?)(\\s)*\n",
+        "registry: (?<depName>.*)\n(\\s*)default: \"?.+:v?(?<currentValue>.*?)(-debug)?\"?\n",
+        "registry: (?<depName>.*)\n(\\s*)image: \"?.+:v?(?<currentValue>.*?)\"?\n",
+        "registry: (?<depName>.*)\n(\\s)*([\\w|_]+)release:(\\s)*v?(?<currentValue>.*?)(\\s)*\n",
+      ],
+      "datasourceTemplate": "docker",
+    },
+    {
       // Supports various formats where a comment with `repo: ${REPO_NAME}` is on the line
       // before the version string line
       "customType": "regex",
