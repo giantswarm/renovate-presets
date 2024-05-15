@@ -41,6 +41,11 @@
       "matchPackageNames": ["amazon/aws-cli"],
       "sourceUrl": "https://github.com/aws/aws-cli",
     },
+    {
+      // Allow Renovate to use prereleases for apps that use them
+      "matchPackageNames": ["aws-cloud-controller-manager-app"],
+      "ignoreUnstable": "false",
+    },
   ],
 
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
