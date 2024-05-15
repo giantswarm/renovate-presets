@@ -43,7 +43,7 @@
     },
     {
       // Allow Renovate to use prereleases for apps that use them
-      "matchPackageNames": ["aws-cloud-controller-manager-app"],
+      "matchPackageNames": ["giantswarm/aws-cloud-controller-manager-app"],
       "ignoreUnstable": "false",
     },
   ],
