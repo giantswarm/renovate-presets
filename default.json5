@@ -47,6 +47,12 @@
       "matchPackageNames": ["HelmRelease"],
       "allowedVersions":  "helm.toolkit.fluxcd.io/v2beta1",
     },
+    {
+      // Prevent updating ImageUpdateAutomation from image.toolkit.fluxcd.io/v1beta1
+      // since we are using Flux 2.1
+      "matchPackageNames": ["ImageUpdateAutomation"],
+      "allowedVersions":  "image.toolkit.fluxcd.io/v1beta1",
+    },
   ],
 
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
