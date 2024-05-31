@@ -27,36 +27,36 @@
 
   "packageRules": [
     {
-      // Force `opsctl` to use strict semver to ignore the old sha-based releases from 2018
-      "matchPackageNames": ["giantswarm/opsctl"],
+      // Force opsctl to use strict semver to ignore the old sha-based releases from 2018
+      "matchDepNames": ["giantswarm/opsctl"],
       "versioning": "semver"
     },
     {
       // Allow Renovate to lookup the changelog for architect-orb updates
-      "packageNames": ["architect"],
+      "matchDepNames": ["architect"],
       "sourceUrl": "https://github.com/giantswarm/architect-orb/"
     },
     {
       // Allow renovate to lookup the changelog for aws-cli
-      "matchPackageNames": ["amazon/aws-cli"],
+      "matchDepNames": ["amazon/aws-cli"],
       "sourceUrl": "https://github.com/aws/aws-cli",
     },
     {
       // Prevent updating HelmRelease from helm.toolkit.fluxcd.io/v2beta1
       // since we are using Flux 2.1
-      "matchPackageNames": ["HelmRelease"],
+      "matchDepNames": ["HelmRelease"],
       "allowedVersions":  "helm.toolkit.fluxcd.io/v2beta1",
     },
     {
       // Prevent updating ImageUpdateAutomation from image.toolkit.fluxcd.io/v1beta1
       // since we are using Flux 2.1
-      "matchPackageNames": ["ImageUpdateAutomation"],
+      "matchDepNames": ["ImageUpdateAutomation"],
       "allowedVersions":  "image.toolkit.fluxcd.io/v1beta1",
     },
     {
       // Prevent updating HelmRepository from source.toolkit.fluxcd.io/v1beta2
       // since we are using Flux 2.1
-      "matchPackageNames": ["HelmRepository"],
+      "matchDepNames": ["HelmRepository"],
       "allowedVersions":  "source.toolkit.fluxcd.io/v1beta2",
     },
   ],

@@ -1,38 +1,38 @@
 {
   "packageRules": [
     {
-      "matchPackagePatterns": [".*giantswarm.*"],
+      "matchDepPatterns": [".*giantswarm.*"],
       "groupName": "Giant Swarm Go modules",
       "matchManagers": ["gomod"]
     },
     {
-      "matchPackagePatterns": ["github.com/onsi/*"],
+      "matchDepPatterns": ["github.com/onsi/*"],
       "groupName": "test libraries"
     },
     {
-      "matchPackagePatterns": ["github.com/aws/aws-sdk-go*"],
+      "matchDepPatterns": ["github.com/aws/aws-sdk-go*"],
       "groupName": "aws sdk"
     },
     {
-      "matchPackagePatterns": ["^k8s.io"],
+      "matchDepPatterns": ["^k8s.io"],
       "groupName": "k8s modules",
       "allowedVersions": "< 0.21.0"
     },
     {
-      "matchPackagePatterns": ["^sigs.k8s.io"],
+      "matchDepPatterns": ["^sigs.k8s.io"],
       "groupName": "sig k8s modules"
     },
     {
-      "matchPackagePatterns": ["^sigs.k8s.io/cluster*"],
+      "matchDepPatterns": ["^sigs.k8s.io/cluster*"],
       "groupName": "capi modules",
       "enabled": false
     },
     {
-      "matchPackageNames": ["sigs.k8s.io/controller-runtime"],
+      "matchDepNames": ["sigs.k8s.io/controller-runtime"],
       "allowedVersions": "< 0.7.0"
     },
     {
-      "matchPackagePatterns": ["^github.com/giantswarm/apiextensions*"],
+      "matchDepPatterns": ["^github.com/giantswarm/apiextensions*"],
       "allowedVersions": ">= 4.0.0"
     },
     {
