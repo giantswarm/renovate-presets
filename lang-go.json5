@@ -1,11 +1,6 @@
 {
   "packageRules": [
     {
-      "matchDepPatterns": [".*giantswarm.*"],
-      "groupName": "Giant Swarm Go modules",
-      "matchManagers": ["gomod"]
-    },
-    {
       "matchDepPatterns": ["github.com/onsi/*"],
       "groupName": "test libraries"
     },
