@@ -59,6 +59,11 @@
       "matchDepNames": ["HelmRepository"],
       "allowedVersions":  "source.toolkit.fluxcd.io/v1beta2",
     },
+    {
+      // Set the location of the changelog as this is a sub-directory module
+      "matchDepNames": ["github.com/giantswarm/releases/sdk"],
+      "changelogUrl": "https://github.com/giantswarm/releases/blob/master/sdk/CHANGELOG.md",
+    },
   ],
 
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
