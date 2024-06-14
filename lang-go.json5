@@ -1,29 +1,38 @@
 {
   "packageRules": [
     {
-      "matchPackagePatterns": [".*giantswarm.*"],
-      "groupName": "giantswarm modules"
-    },
-    {
-      "matchPackagePatterns": ["github.com/onsi/*"],
+      "matchDepPatterns": ["github.com/onsi/*"],
       "groupName": "test libraries"
     },
     {
-      "matchPackagePatterns": ["^k8s.io"],
+      "matchDepPatterns": ["github.com/aws/aws-sdk-go*"],
+      "groupName": "aws sdk"
+    },
+    {
+      "matchDepPatterns": ["^k8s.io"],
       "groupName": "k8s modules",
     },
     {
-      "matchPackagePatterns": ["^sigs.k8s.io"],
+      "matchDepPatterns": ["^sigs.k8s.io"],
       "groupName": "sig k8s modules"
     },
     {
-      "matchPackagePatterns": ["^sigs.k8s.io/cluster*"],
+      "matchDepPatterns": ["^sigs.k8s.io/cluster*"],
       "groupName": "capi modules",
     },
     {
-      "matchPackagePatterns": ["^github.com/giantswarm/apiextensions*"],
+      "matchDepPatterns": ["^github.com/giantswarm/apiextensions*"],
       "allowedVersions": ">= 4.0.0"
     },
+    {
+      "matchUpdateTypes": [
+        "patch",
+      ],
+      "automerge": true,
+    },
+  ],
+  "ignoreDeps": [
+    "github.com/giantswarm/operatorkit/v8", // Released by mistake, release got pulled back
   ],
   "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
 }

@@ -21,9 +21,51 @@
   ],
   "ignoreDeps": [
     "actions/setup-go",
-    "architect",
     "github.com/imdario/mergo",
     "zricethezav/gitleaks-action"
+  ],
+
+  "packageRules": [
+    {
+      // Force opsctl to use strict semver to ignore the old sha-based releases from 2018
+      "matchDepNames": ["giantswarm/opsctl"],
+      "versioning": "semver"
+    },
+    {
+      // Allow Renovate to lookup the changelog for architect-orb updates
+      "matchDepNames": ["architect"],
+      "sourceUrl": "https://github.com/giantswarm/architect-orb/"
+    },
+    {
+      // Allow renovate to lookup the changelog for aws-cli
+      "matchDepNames": ["amazon/aws-cli"],
+      "sourceUrl": "https://github.com/aws/aws-cli",
+    },
+    {
+      // Prevent updating HelmRelease from helm.toolkit.fluxcd.io/v2beta1
+      // since we are using Flux 2.1
+      "matchDepNames": ["HelmRelease"],
+      "allowedVersions":  "helm.toolkit.fluxcd.io/v2beta1",
+    },
+    {
+      // Prevent updating ImageUpdateAutomation from image.toolkit.fluxcd.io/v1beta1
+      // since we are using Flux 2.1
+      "matchDepNames": ["ImageUpdateAutomation"],
+      "allowedVersions":  "image.toolkit.fluxcd.io/v1beta1",
+    },
+    {
+      // Prevent updating HelmRepository from source.toolkit.fluxcd.io/v1beta2
+      // since we are using Flux 2.1
+      "matchDepNames": ["HelmRepository"],
+      "allowedVersions":  "source.toolkit.fluxcd.io/v1beta2",
+    },
+    {
+      // Set the location of the changelog as this is a sub-directory module
+      "matchDepNames": ["github.com/giantswarm/releases/sdk"],
+      "changelogUrl": "https://github.com/giantswarm/releases/blob/master/sdk/CHANGELOG.md",
+      "sourceUrl": "https://github.com/giantswarm/releases",
+      "sourceDirectory": "sdk",
+    },
   ],
 
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
@@ -32,6 +74,28 @@
   },
 
   "customManagers": [
+    {
+      // Supports various formats where a comment with `registry: ${registry url}` is on the line
+      // before the version string line
+      "customType": "regex",
+      "fileMatch": [
+        ".*y[a]?ml$",
+        "Dockerfile$",
+        "^Makefile\\..+\\.mk$",
+      ],
+      "matchStrings": [
+        "registry: (?<depName>.*)\n(.+)\\?= v?(?<currentValue>\\S+)\n",
+        "registry: (?<depName>.*)\n(.+)\\/releases\\/download\\/v?(?<currentValue>.+)\\/.*",
+        "registry: (?<depName>.*)\n(.+)=v?(?<currentValue>\\S+)\n",
+        "registry: (?<depName>.*)\n(.+)VERSION=v?(?<currentValue>.+)\\/.*",
+        "registry: (?<depName>.*)\n(\\s)*version: v?(?<currentValue>.*?)\n",
+        "registry: (?<depName>.*)\n(\\s)*version:(\\s)*v?(?<currentValue>.*?)(\\s)*\n",
+        "registry: (?<depName>.*)\n(\\s*)default: \"?.+:v?(?<currentValue>.*?)(-debug)?\"?\n",
+        "registry: (?<depName>.*)\n(\\s*)image: \"?.+:v?(?<currentValue>.*?)\"?\n",
+        "registry: (?<depName>.*)\n(\\s)*([\\w|_]+)release:(\\s)*v?(?<currentValue>.*?)(\\s)*\n",
+      ],
+      "datasourceTemplate": "docker",
+    },
     {
       // Supports various formats where a comment with `repo: ${REPO_NAME}` is on the line
       // before the version string line
@@ -43,12 +107,15 @@
       ],
       "matchStrings": [
         "repo: (?<depName>.*)\n(.+)\\?= v?(?<currentValue>\\S+)\n",
-        "repo: (?<depName>.*)\n(.+)\\/releases\\/download\\/(?<currentValue>.+)\\/.*",
+        "repo: (?<depName>.*)\n(.+)\\/releases\\/download\\/v?(?<currentValue>.+)\\/.*",
         "repo: (?<depName>.*)\n(.+)=v?(?<currentValue>\\S+)\n",
-        "repo: (?<depName>.*)\n(.+)VERSION=(?<currentValue>.+)\\/.*",
-        "repo: (?<depName>.*)\n(\\s)*version: (?<currentValue>.*?)\n",
-        "repo: (?<depName>.*)\n(\\s)*version:(\\s)*(?<currentValue>.*?)(\\s)*\n",
-        "repo: (?<depName>.*)\n(\\s*)default: \"?.+:(?<currentValue>.*?)\"?\n",
+        "repo: (?<depName>.*)\n(.+)VERSION=v?(?<currentValue>.+)\\/.*",
+        "repo: (?<depName>.*)\n(\\s)*version: v?(?<currentValue>.*?)\n",
+        "repo: (?<depName>.*)\n(\\s)*version:(\\s)*v?(?<currentValue>.*?)(\\s)*\n",
+        "repo: (?<depName>.*)\n(\\s*)default: \"?.+:v?(?<currentValue>.*?)(-debug)?\"?\n",
+        "repo: (?<depName>.*)\n(\\s*)image: \"?.+:v?(?<currentValue>.*?)\"?\n",
+        "repo: (?<depName>.*)\n(\\s)*([\\w|_]+)release:(\\s)*v?(?<currentValue>.*?)(\\s)*\n",
+        "repo: (?<depName>.*)\nFROM .+?:(?<currentValue>[^\s]+)",
       ],
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^\"?v?(?<version>.*)\"?$"
