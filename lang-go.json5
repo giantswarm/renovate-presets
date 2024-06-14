@@ -11,7 +11,6 @@
     {
       "matchDepPatterns": ["^k8s.io"],
       "groupName": "k8s modules",
-      "allowedVersions": "< 0.21.0"
     },
     {
       "matchDepPatterns": ["^sigs.k8s.io"],
@@ -20,11 +19,6 @@
     {
       "matchDepPatterns": ["^sigs.k8s.io/cluster*"],
       "groupName": "capi modules",
-      "enabled": false
-    },
-    {
-      "matchDepNames": ["sigs.k8s.io/controller-runtime"],
-      "allowedVersions": "< 0.7.0"
     },
     {
       "matchDepPatterns": ["^github.com/giantswarm/apiextensions*"],
