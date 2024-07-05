@@ -5,6 +5,14 @@
       "groupName": "test libraries"
     },
     {
+      "matchDepNames": [
+        "github.com/giantswarm/clustertest",
+        "github.com/giantswarm/cluster-standup-teardown",
+        "github.com/giantswarm/apptest-framework",
+      ],
+      "groupName": "test framework"
+    },
+    {
       "matchDepPatterns": ["github.com/aws/aws-sdk-go*"],
       "groupName": "aws sdk"
     },
