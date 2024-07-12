@@ -76,6 +76,9 @@
     "capa": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capa/releases.json",
       },
+    "capz": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/azure/releases.json",
+    },
   },
   "customManagers": [
     {
@@ -140,6 +143,14 @@
       "depNameTemplate": "capa",
       "versioningTemplate": "semver-coerced",
       "datasourceTemplate": "custom.capa",
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [".*y[a]?ml$"],
+      "matchStrings": ["cluster_release_provider: capz\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n"],
+      "depNameTemplate": "capz",
+      "versioningTemplate": "semver-coerced",
+      "datasourceTemplate": "custom.capz",
     }
   ],
 
