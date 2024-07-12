@@ -27,6 +27,12 @@
 
   "packageRules": [
     {
+      // Create separate major releases for CAPA and CAPZ
+      "matchDepNames": ["capa", "capz"],
+      "separateMajorMinor": true,
+      "separateMultipleMajor": true
+    },
+    {
       // Force opsctl to use strict semver to ignore the old sha-based releases from 2018
       "matchDepNames": ["giantswarm/opsctl"],
       "versioning": "semver"
@@ -72,7 +78,14 @@
   "kubernetes": {
     "fileMatch": ["\\.y[a]?ml$"]
   },
-
+  "customDatasources": {
+    "capa": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capa/releases.json",
+      },
+    "capz": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/azure/releases.json",
+    },
+  },
   "customManagers": [
     {
       // Supports various formats where a comment with `registry: ${registry url}` is on the line
@@ -128,6 +141,24 @@
         "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sARG .+_VER=(?<currentValue>.*)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      // Supports matching against new `giantswarm/releases` for CAPA clusters
+      "customType": "regex",
+      "fileMatch": [".*y[a]?ml$"],
+      "matchStrings": ["cluster_release_provider: capa\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n"],
+      "depNameTemplate": "capa",
+      "versioningTemplate": "semver-coerced",
+      "datasourceTemplate": "custom.capa",
+    },
+    {
+      // Supports matching against new `giantswarm/releases` for CAPZ clusters
+      "customType": "regex",
+      "fileMatch": [".*y[a]?ml$"],
+      "matchStrings": ["cluster_release_provider: capz\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n"],
+      "depNameTemplate": "capz",
+      "versioningTemplate": "semver-coerced",
+      "datasourceTemplate": "custom.capz",
     }
   ],
 
