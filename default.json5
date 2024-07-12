@@ -27,6 +27,18 @@
 
   "packageRules": [
     {
+      // Create separate major releases for CAPA
+      "matchDepNames": ["capa"],
+      "separateMajorMinor": true,
+      "separateMultipleMajor": true
+    },
+    {
+      // Create separate major releases for CAPZ
+      "matchDepNames": ["capz"],
+      "separateMultipleMajor": true,
+      "separateMajorMinor": true
+    },
+    {
       // Force opsctl to use strict semver to ignore the old sha-based releases from 2018
       "matchDepNames": ["giantswarm/opsctl"],
       "versioning": "semver"
