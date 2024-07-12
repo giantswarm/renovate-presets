@@ -72,7 +72,11 @@
   "kubernetes": {
     "fileMatch": ["\\.y[a]?ml$"]
   },
-
+  "customDatasources": {
+    "capa": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capa/releases.json",
+      },
+  },
   "customManagers": [
     {
       // Supports various formats where a comment with `registry: ${registry url}` is on the line
@@ -128,6 +132,14 @@
         "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sARG .+_VER=(?<currentValue>.*)\\s"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": [".*y[a]?ml$"],
+      "matchStrings": ["cluster_release_provider: capa\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n"],
+      "depNameTemplate": "capa",
+      "versioningTemplate": "semver-coerced",
+      "datasourceTemplate": "custom.capa",
     }
   ],
 
