@@ -146,7 +146,10 @@
       // Supports matching against new `giantswarm/releases` for CAPA clusters
       "customType": "regex",
       "fileMatch": [".*y[a]?ml$"],
-      "matchStrings": ["cluster_release_provider: capa\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n"],
+      "matchStrings": [
+        "cluster_release_provider: capa\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
+        "cluster_release_provider: capa\n(\\s+)?release: (?<currentValue>\\S+)\n",
+      ],
       "depNameTemplate": "capa",
       "versioningTemplate": "semver-coerced",
       "datasourceTemplate": "custom.capa",
@@ -155,7 +158,10 @@
       // Supports matching against new `giantswarm/releases` for CAPZ clusters
       "customType": "regex",
       "fileMatch": [".*y[a]?ml$"],
-      "matchStrings": ["cluster_release_provider: capz\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n"],
+      "matchStrings": [
+        "cluster_release_provider: capz\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
+        "cluster_release_provider: capz\n(\\s+)?release: (?<currentValue>\\S+)\n",
+      ],
       "depNameTemplate": "capz",
       "versioningTemplate": "semver-coerced",
       "datasourceTemplate": "custom.capz",
