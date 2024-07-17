@@ -148,7 +148,7 @@
       "fileMatch": [".*y[a]?ml$"],
       "matchStrings": [
         "cluster_release_provider: capa\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
-        "cluster_release_provider: capa\n(\\s+)?release: (?<currentValue>\\S+)\n",
+        "cluster_release_provider: capa\n(\\s+)?version: (?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capa",
       "versioningTemplate": "semver-coerced",
@@ -160,7 +160,7 @@
       "fileMatch": [".*y[a]?ml$"],
       "matchStrings": [
         "cluster_release_provider: capz\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
-        "cluster_release_provider: capz\n(\\s+)?release: (?<currentValue>\\S+)\n",
+        "cluster_release_provider: capz\n(\\s+)?version: (?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capz",
       "versioningTemplate": "semver-coerced",
