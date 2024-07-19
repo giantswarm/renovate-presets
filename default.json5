@@ -152,7 +152,7 @@
       "matchStrings": [
         "cluster_release_provider: capa\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
         "cluster_release_provider: capa\n(\\s+)?version: (?<currentValue>\\S+)\n",
-        "cluster_release_provider: capa\n(\\s+)?AWS_RELEASE_TAG_VERSION \?= aws/v(?<currentValue>\\S+)\n",
+        "cluster_release_provider: capa\n(\\s+)?AWS_RELEASE_TAG_VERSION \\?= aws\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capa",
       "versioningTemplate": "semver-coerced",
@@ -168,7 +168,7 @@
       "matchStrings": [
         "cluster_release_provider: capz\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
         "cluster_release_provider: capz\n(\\s+)?version: (?<currentValue>\\S+)\n",
-        "cluster_release_provider: capz\n(\\s+)?AZURE_RELEASE_TAG_VERSION \?= azure/v(?<currentValue>\\S+)\n",
+        "cluster_release_provider: capz\n(\\s+)?AZURE_RELEASE_TAG_VERSION \\?= azure\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capz",
       "versioningTemplate": "semver-coerced",
