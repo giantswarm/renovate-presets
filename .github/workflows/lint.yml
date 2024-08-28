@@ -25,7 +25,7 @@ jobs:
           node-version: '20.15'
       - name: Install npm package
         run: "npm install --global json5"
-      - name: Validate
+      - name: Validate JSON5 syntax
         run: |
           EXIT_CODE=0
           for f in *.json5; do
