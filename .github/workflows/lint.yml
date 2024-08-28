@@ -36,3 +36,5 @@ jobs:
             fi
           done
           exit ${EXIT_CODE}
+      - name: Validate Renovate config
+        run: npx --yes --package renovate -- renovate-config-validator --strict *.json5
