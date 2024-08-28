@@ -1,16 +1,18 @@
 {
   "packageRules": [
     {
-      "matchDepPatterns": ["github.com/onsi/*"],
-      "groupName": "test libraries"
+      "groupName": "test libraries",
+      "matchDepNames": [
+        "/github.com/onsi/*/",
+      ],
     },
     {
+      "groupName": "test framework",
       "matchDepNames": [
         "github.com/giantswarm/clustertest",
         "github.com/giantswarm/cluster-standup-teardown",
         "github.com/giantswarm/apptest-framework",
       ],
-      "groupName": "test framework"
     },
     {
       "matchDepNames": [
@@ -19,27 +21,35 @@
       "allowedVersions": "!/incompatible$/", // Retracted releases
     },
     {
-      "matchDepPatterns": ["github.com/aws/aws-sdk-go*"],
-      "groupName": "aws sdk"
-    },
-    {
-      "matchDepPatterns": [
-        "^k8s.io",
-        "^sigs.k8s.io/controller-runtime$",
+      "groupName": "aws sdk",
+      "matchDepNames": [
+        "/github.com/aws/aws-sdk-go*/",
       ],
+    },
+    {
       "groupName": "k8s modules",
+      "matchDepNames": [
+        "/^k8s.io/",
+        "/^sigs.k8s.io/controller-runtime$/",
+      ],
     },
     {
-      "matchDepPatterns": ["^sigs.k8s.io"],
-      "groupName": "sig k8s modules"
+      "groupName": "sig k8s modules",
+      "matchDepNames": [
+        "/^sigs.k8s.io/",
+      ],
     },
     {
-      "matchDepPatterns": ["^sigs.k8s.io/cluster*"],
       "groupName": "capi modules",
+      "matchDepNames": [
+        "/^sigs.k8s.io/cluster*/",
+      ],
     },
     {
-      "matchDepPatterns": ["^github.com/giantswarm/apiextensions*"],
-      "allowedVersions": ">= 4.0.0"
+      "matchDepNames": [
+        "/^github.com/giantswarm/apiextensions*/",
+      ],
+      "allowedVersions": ">= 4.0.0",
     },
     {
       "matchUpdateTypes": [
@@ -51,5 +61,8 @@
   "ignoreDeps": [
     "github.com/giantswarm/operatorkit/v8", // Released by mistake, release got pulled back
   ],
-  "postUpdateOptions": ["gomodTidy", "gomodUpdateImportPaths"],
+  "postUpdateOptions": [
+    "gomodTidy",
+    "gomodUpdateImportPaths",
+  ],
 }
