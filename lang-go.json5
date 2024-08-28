@@ -13,6 +13,12 @@
       "groupName": "test framework"
     },
     {
+      "matchDepNames": [
+        "k8s.io/client-go",
+      ],
+      "allowedVersions": "!/v11\.0\.0+incompatible$/", // Retracted release
+    },
+    {
       "matchDepPatterns": ["github.com/aws/aws-sdk-go*"],
       "groupName": "aws sdk"
     },
