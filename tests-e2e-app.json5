@@ -1,0 +1,6 @@
+{
+    "prBodyNotes": [
+        "Trigger E2E tests:",
+        "/run app-test-suites",
+    ],
+}
