@@ -76,7 +76,11 @@
 
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
   "kubernetes": {
-    "fileMatch": ["\\.y[a]?ml$"]
+    "fileMatch": ["\\.y[a]?ml$"],
+    "ignorePaths": [
+      // Avoid updating individual deployments in Flux manifests, this is instead handled by the Flux manager
+      "(?:^|/)gotk-components\\.ya?ml$"
+    ]
   },
   "customDatasources": {
     "capa": {
