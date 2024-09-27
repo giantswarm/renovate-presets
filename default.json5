@@ -79,7 +79,7 @@
     "fileMatch": ["\\.y[a]?ml$"],
     "ignorePaths": [
       // Avoid updating individual deployments in Flux manifests, this is instead handled by the Flux manager
-      "gotk-components\\.ya?ml$"
+      "**/gotk-components.yaml", "**/gotk-components.yml"
     ]
   },
   "customDatasources": {
