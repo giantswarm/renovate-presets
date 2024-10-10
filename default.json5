@@ -72,6 +72,12 @@
       "sourceUrl": "https://github.com/giantswarm/releases",
       "sourceDirectory": "sdk",
     },
+    {
+      "matchUpdateTypes": [
+        "patch",
+      ],
+      "automerge": true,
+    }
   ],
 
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
