@@ -219,7 +219,7 @@
         "cluster_release_provider: capvcd\n(\\s+)?CLOUDDIRECTOR_RELEASE_TAG_VERSION \\?= cloud-director\\/v(?<currentValue>\\S+)\n",
         "cluster_release_provider: capvcd\n(\\s+)?CLOUDDIRECTOR_RELEASE_TAG \\?= cloud-director\\/v(?<currentValue>\\S+)\n",
       ],
-      "depNameTemplate": "capa",
+      "depNameTemplate": "capvcd",
       "versioningTemplate": "semver-coerced",
       "datasourceTemplate": "custom.capvcd",
     }
