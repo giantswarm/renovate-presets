@@ -166,6 +166,7 @@
         "cluster_release_provider: capa\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
         "cluster_release_provider: capa\n(\\s+)?version: (?<currentValue>\\S+)\n",
         "cluster_release_provider: capa\n(\\s+)?AWS_RELEASE_TAG_VERSION \\?= aws\\/v(?<currentValue>\\S+)\n",
+        "cluster_release_provider: capa\n(\\s+)?AWS_RELEASE_TAG \\?= aws\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capa",
       "versioningTemplate": "semver-coerced",
@@ -182,10 +183,45 @@
         "cluster_release_provider: capz\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
         "cluster_release_provider: capz\n(\\s+)?version: (?<currentValue>\\S+)\n",
         "cluster_release_provider: capz\n(\\s+)?AZURE_RELEASE_TAG_VERSION \\?= azure\\/v(?<currentValue>\\S+)\n",
+        "cluster_release_provider: capz\n(\\s+)?AZURE_RELEASE_TAG \\?= azure\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capz",
       "versioningTemplate": "semver-coerced",
       "datasourceTemplate": "custom.capz",
+    },
+    {
+      // Supports matching against new `giantswarm/releases` for CAPV clusters
+      "customType": "regex",
+      "fileMatch": [
+        ".*y[a]?ml$",
+        "^Makefile\\..+\\.mk$",
+      ],
+      "matchStrings": [
+        "cluster_release_provider: capv\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
+        "cluster_release_provider: capv\n(\\s+)?version: (?<currentValue>\\S+)\n",
+        "cluster_release_provider: capv\n(\\s+)?VSPHERE_RELEASE_TAG_VERSION \\?= vsphere\\/v(?<currentValue>\\S+)\n",
+        "cluster_release_provider: capv\n(\\s+)?VSPHERE_RELEASE_TAG \\?= vsphere\\/v(?<currentValue>\\S+)\n",
+      ],
+      "depNameTemplate": "capv",
+      "versioningTemplate": "semver-coerced",
+      "datasourceTemplate": "custom.capv",
+    },
+    {
+      // Supports matching against new `giantswarm/releases` for CAPVCD clusters
+      "customType": "regex",
+      "fileMatch": [
+        ".*y[a]?ml$",
+        "^Makefile\\..+\\.mk$",
+      ],
+      "matchStrings": [
+        "cluster_release_provider: capvcd\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
+        "cluster_release_provider: capvcd\n(\\s+)?version: (?<currentValue>\\S+)\n",
+        "cluster_release_provider: capvcd\n(\\s+)?CLOUDDIRECTOR_RELEASE_TAG_VERSION \\?= cloud-director\\/v(?<currentValue>\\S+)\n",
+        "cluster_release_provider: capvcd\n(\\s+)?CLOUDDIRECTOR_RELEASE_TAG \\?= cloud-director\\/v(?<currentValue>\\S+)\n",
+      ],
+      "depNameTemplate": "capvcd",
+      "versioningTemplate": "semver-coerced",
+      "datasourceTemplate": "custom.capvcd",
     }
   ],
 
