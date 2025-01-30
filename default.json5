@@ -27,8 +27,8 @@
 
   "packageRules": [
     {
-      // Create separate major releases for CAPA and CAPZ
-      "matchDepNames": ["capa", "capz"],
+      // Create separate major releases for CAPA,CAPZ,CAPV and CAPVCD
+      "matchDepNames": ["capa", "capz", "capv", "capvcd"],
       "separateMajorMinor": true,
       "separateMultipleMajor": true
     },
@@ -94,6 +94,12 @@
       },
     "capz": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/azure/releases.json",
+    },
+    "capv": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/vsphere/releases.json",
+    },
+    "capvcd": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/cloud-director/releases.json",
     },
   },
   "customManagers": [
