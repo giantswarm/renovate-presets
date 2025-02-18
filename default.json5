@@ -42,7 +42,7 @@
       "matchPackageNames": [
         "giantswarm/cluster-autoscaler-app"
       ],
-      "ignoreUnstable": "false",
+      "ignoreUnstable": false,
     },
     {
       // Allow Renovate to lookup the changelog for architect-orb updates
