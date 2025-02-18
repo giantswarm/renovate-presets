@@ -38,6 +38,13 @@
       "versioning": "semver"
     },
     {
+      // Allow updating deps that use `-gs1` style suffix
+      "matchPackageNames": [
+        "giantswarm/cluster-autoscaler-app"
+      ],
+      "ignoreUnstable": "false",
+    },
+    {
       // Allow Renovate to lookup the changelog for architect-orb updates
       "matchDepNames": ["architect"],
       "sourceUrl": "https://github.com/giantswarm/architect-orb/"
