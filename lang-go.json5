@@ -60,6 +60,7 @@
   ],
   "ignoreDeps": [
     "github.com/giantswarm/operatorkit/v8", // Released by mistake, release got pulled back
+    "github.com/giantswarm/k8sclient/v8", // Released by mistake, release got pulled back
   ],
   "postUpdateOptions": [
     "gomodTidy",
