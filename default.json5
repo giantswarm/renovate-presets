@@ -142,7 +142,7 @@
       // before the version string line
       "customType": "regex",
       "fileMatch": [
-        ".*y[a]?ml$",
+        ".*y[a]?ml(.template)?$",
         "Dockerfile$",
         "^Makefile\\..+\\.mk$",
       ],
@@ -166,7 +166,7 @@
       // before the version string line
       "customType": "regex",
       "fileMatch": [
-        ".*y[a]?ml$",
+        ".*y[a]?ml$(.template)?",
         "Dockerfile$",
         "^Makefile\\..+\\.mk$",
       ],
