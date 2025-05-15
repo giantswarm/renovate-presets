@@ -72,9 +72,15 @@
       "ignoreUnstable": false,
     },
     {
-      // Allow Renovate to lookup the changelog for architect-orb updates
-      "matchDepNames": ["architect"],
+      "description": "Allow Renovate to lookup the changelog for architect-orb updates",
+      "matchPackageNames": ["architect"],
       "sourceUrl": "https://github.com/giantswarm/architect-orb/"
+    },
+    {
+      "description": "Automerge patch & minor updates for architect-orb",
+      "matchPackageNames": ["architect"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true
     },
     {
       // Allow renovate to lookup the changelog for aws-cli
