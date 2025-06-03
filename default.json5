@@ -1,4 +1,5 @@
 {
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
     "config:recommended" // https://docs.renovatebot.com/presets-config/#configrecommended
   ],
@@ -26,6 +27,14 @@
   ],
 
   "packageRules": [
+    {
+      "groupName": "Giant Swarm GitHub workflows",
+      "description": "Group all Giant Swarm workflow updates together and allow auto-merging.",
+      "matchDepNames": [
+        "giantswarm/github-workflows",
+      ],
+      "automerge": true
+    },
     {
       // Create separate major releases for CAPA,CAPZ,CAPV and CAPVCD
       "matchDepNames": ["capa", "capz", "capv", "capvcd"],
