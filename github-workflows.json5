@@ -1,0 +1,13 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "groupName": "Giant Swarm GitHub workflows",
+      "description": "Group all Giant Swarm workflow updates together and allow auto-merging.",
+      "matchDepNames": [
+        "giantswarm/github-workflows",
+      ],
+      "automerge": true
+    }
+  ],
+}
