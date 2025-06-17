@@ -5,6 +5,7 @@
       "groupName": "test libraries",
       "matchDepNames": [
         "/github.com/onsi/*/",
+        "/github.com/maxbrunsfeld/counterfeiter/*/"
       ],
     },
     {
