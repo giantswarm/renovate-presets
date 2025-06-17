@@ -1,6 +1,7 @@
 {
-    "prBodyNotes": [
-        "Trigger E2E tests:",
-        "/run app-test-suites",
-    ],
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "prBodyNotes": [
+    "Trigger E2E tests:",
+    "/run app-test-suites",
+  ],
 }
