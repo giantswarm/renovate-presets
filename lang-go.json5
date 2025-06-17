@@ -48,12 +48,6 @@
       ],
     },
     {
-      "matchDepNames": [
-        "/^github.com/giantswarm/apiextensions*/",
-      ],
-      "allowedVersions": ">= 4.0.0",
-    },
-    {
       "matchUpdateTypes": [
         "patch",
       ],
