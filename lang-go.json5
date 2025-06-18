@@ -5,6 +5,7 @@
       "groupName": "test libraries",
       "matchDepNames": [
         "/github.com/onsi/*/",
+        "/github.com/maxbrunsfeld/counterfeiter/*/"
       ],
     },
     {
@@ -45,12 +46,6 @@
       "matchDepNames": [
         "/^sigs.k8s.io/cluster*/",
       ],
-    },
-    {
-      "matchDepNames": [
-        "/^github.com/giantswarm/apiextensions*/",
-      ],
-      "allowedVersions": ">= 4.0.0",
     },
     {
       "matchUpdateTypes": [
