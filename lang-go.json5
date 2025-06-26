@@ -36,12 +36,6 @@
       ],
     },
     {
-      "groupName": "sig k8s modules",
-      "matchDepNames": [
-        "/^sigs.k8s.io/",
-      ],
-    },
-    {
       "groupName": "capi modules",
       "matchDepNames": [
         "/^sigs.k8s.io/cluster*/",
