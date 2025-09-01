@@ -1,0 +1,25 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "prBodyNotes": [
+    "Trigger E2E tests:",
+    "/run app-test-suites",
+  ],
+  "ignorePaths": [
+    ".github/workflows/zz_generated.*",
+    ".github/workflows/codeql-analysis.yml",
+    ".github/workflows/pre_commit_*.yaml",
+    "helm/cilium/**",
+    "helm/envoy-gateway/**",
+    "sync/patches/values/**",
+  ],
+  "packageRules": [
+    {
+      "description": "Group dependencies from E2E tests",
+      "matchFileNames": ["tests/e2e/**"],
+      "groupName": "E2E tests dependencies",
+    }
+  ],
+  "ignoreDeps": [
+      "github.com/cilium/cilium"
+  ]
+}
