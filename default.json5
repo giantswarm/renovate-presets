@@ -97,24 +97,6 @@
       "sourceUrl": "https://github.com/aws/aws-cli",
     },
     {
-      // Prevent updating HelmRelease from helm.toolkit.fluxcd.io/v2beta1
-      // since we are using Flux 2.1
-      "matchDepNames": ["HelmRelease"],
-      "allowedVersions":  "helm.toolkit.fluxcd.io/v2beta1",
-    },
-    {
-      // Prevent updating ImageUpdateAutomation from image.toolkit.fluxcd.io/v1beta1
-      // since we are using Flux 2.1
-      "matchDepNames": ["ImageUpdateAutomation"],
-      "allowedVersions":  "image.toolkit.fluxcd.io/v1beta1",
-    },
-    {
-      // Prevent updating HelmRepository from source.toolkit.fluxcd.io/v1beta2
-      // since we are using Flux 2.1
-      "matchDepNames": ["HelmRepository"],
-      "allowedVersions":  "source.toolkit.fluxcd.io/v1beta2",
-    },
-    {
       // Set the location of the changelog as this is a sub-directory module
       "matchDepNames": ["github.com/giantswarm/releases/sdk"],
       "changelogUrl": "https://github.com/giantswarm/releases/blob/master/sdk/CHANGELOG.md",
