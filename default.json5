@@ -113,10 +113,11 @@
 
   // Supports updating both image versions and Kubernetes API versions (e.g. `apiVersion: apps/v1beta1`)
   "kubernetes": {
-    "fileMatch": ["\\.y[a]?ml$"],
+    "managerFilePatterns": ["\\.y[a]?ml$"],
     "ignorePaths": [
       // Avoid updating individual deployments in Flux manifests, this is instead handled by the Flux manager
-      "**/gotk-components.yaml", "**/gotk-components.yml"
+      "**/gotk-components.yaml",
+      "**/gotk-components.yml",
     ]
   },
   "customDatasources": {
@@ -135,13 +136,11 @@
   },
   "customManagers": [
     {
-      // Supports various formats where a comment with `registry: ${registry url}` is on the line
-      // before the version string line
       "customType": "regex",
-      "fileMatch": [
-        ".*y[a]?ml(.template)?$",
-        "Dockerfile$",
-        "^Makefile\\..+\\.mk$",
+      "managerFilePatterns": [
+        "/.*y[a]?ml(.template)?$/",
+        "/Dockerfile$/",
+        "/^Makefile\\..+\\.mk$/",
       ],
       "matchStrings": [
         "registry: (?<depName>.*)\n(.+)\\?= v?(?<currentValue>\\S+)\n",
@@ -159,14 +158,12 @@
       "datasourceTemplate": "docker",
     },
     {
-      // Supports various formats where a comment with `repo: ${REPO_NAME}` is on the line
-      // before the version string line
       "customType": "regex",
-      "fileMatch": [
-        ".*y[a]?ml$(.template)?",
-        ".*sh$",
-        "Dockerfile$",
-        "^Makefile\\..+\\.mk$",
+      "managerFilePatterns": [
+        "/.*y[a]?ml$(.template)?/",
+        "/.*sh$/",
+        "/Dockerfile$/",
+        "/^Makefile\\..+\\.mk$/",
       ],
       "matchStrings": [
         "repo: (?<depName>.*)\n(.+)\\?= v?(?<currentValue>\\S+)\n",
@@ -180,27 +177,25 @@
         "repo: (?<depName>.*)\n(\\s*)value: \"?(.+:)?v?(?<currentValue>.*?)(-debug)?\"?\n",
         "repo: (?<depName>.*)\n(\\s*)image: \"?.+:v?(?<currentValue>.*?)\"?\n",
         "repo: (?<depName>.*)\n(\\s)*([\\w|_]+)release:(\\s)*v?(?<currentValue>.*?)(\\s)*\n",
-        "repo: (?<depName>.*)\nFROM .+?:(?<currentValue>[^\s]+)",
+        "repo: (?<depName>.*)\nFROM .+?:(?<currentValue>[^s]+)",
       ],
       "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^\"?v?(?<version>.*)\"?$"
+      "extractVersionTemplate": "^\"?v?(?<version>.*)\"?$",
     },
     {
-      // Supports matching a version where the datasource and dep name are defined in a comment on the previous line
       "customType": "regex",
-      "fileMatch": ["^Dockerfile$"],
+      "managerFilePatterns": ["/^Dockerfile$/"],
       "matchStrings": [
         "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sARG .+_VER=(?<currentValue>.*)\\s"
       ],
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
     },
     {
-      // Supports matching against new `giantswarm/releases` for CAPA clusters
       "customType": "regex",
-      "fileMatch": [
-        ".*y[a]?ml$",
-        ".*sh$",
-        "^Makefile\\..+\\.mk$",
+      "managerFilePatterns": [
+        "/.*y[a]?ml$/",
+        "/.*sh$/",
+        "/^Makefile\\..+\\.mk$/",
       ],
       "matchStrings": [
         "cluster_release_provider: capa\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
@@ -213,12 +208,11 @@
       "datasourceTemplate": "custom.capa",
     },
     {
-      // Supports matching against new `giantswarm/releases` for CAPZ clusters
       "customType": "regex",
-      "fileMatch": [
-        ".*y[a]?ml$",
-        ".*sh$",
-        "^Makefile\\..+\\.mk$",
+      "managerFilePatterns": [
+        "/.*y[a]?ml$/",
+        "/.*sh$/",
+        "/^Makefile\\..+\\.mk$/",
       ],
       "matchStrings": [
         "cluster_release_provider: capz\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
@@ -231,12 +225,11 @@
       "datasourceTemplate": "custom.capz",
     },
     {
-      // Supports matching against new `giantswarm/releases` for CAPV clusters
       "customType": "regex",
-      "fileMatch": [
-        ".*y[a]?ml$",
-        ".*sh$",
-        "^Makefile\\..+\\.mk$",
+      "managerFilePatterns": [
+        "/.*y[a]?ml$/",
+        "/.*sh$/",
+        "/^Makefile\\..+\\.mk$/",
       ],
       "matchStrings": [
         "cluster_release_provider: capv\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
@@ -249,12 +242,11 @@
       "datasourceTemplate": "custom.capv",
     },
     {
-      // Supports matching against new `giantswarm/releases` for CAPVCD clusters
       "customType": "regex",
-      "fileMatch": [
-        ".*y[a]?ml$",
-        ".*sh$",
-        "^Makefile\\..+\\.mk$",
+      "managerFilePatterns": [
+        "/.*y[a]?ml$/",
+        "/.*sh$/",
+        "/^Makefile\\..+\\.mk$/",
       ],
       "matchStrings": [
         "cluster_release_provider: capvcd\n(\\s+)?cluster_release: (?<currentValue>\\S+)\n",
@@ -267,5 +259,4 @@
       "datasourceTemplate": "custom.capvcd",
     }
   ],
-
 }
