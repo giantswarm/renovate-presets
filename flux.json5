@@ -3,7 +3,7 @@
   // https://docs.renovatebot.com/modules/manager/flux/
   flux: {
     managerFilePatterns: [
-      '/(?:^|/)gotk-components\\.ya?ml$/'
+      '/(?:^|/)gotk-components\\.ya?ml$/',
     ],
   },
 }
