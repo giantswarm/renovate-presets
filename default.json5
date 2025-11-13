@@ -108,6 +108,11 @@
         "patch",
       ],
       "automerge": true,
+    },
+    {
+      "description": "Exclude helm packages with major version v4",
+      "matchDepNames": ["/\\bhelm\\b/"],
+      "allowedVersions": "!/^v?4\\./"
     }
   ],
 
