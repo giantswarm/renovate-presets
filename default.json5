@@ -125,6 +125,36 @@
       "**/gotk-components.yml",
     ]
   },
+  "customDatasources": {
+    "giantswarm-releases-capa": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capa/releases.json",
+      "format": "json",
+      "transformTemplates": [
+        "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/aws%2Fv\" & version, \"releaseTimestamp\": releaseTimestamp} }"
+      ]
+    },
+    "giantswarm-releases-capz": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capz/releases.json",
+      "format": "json",
+      "transformTemplates": [
+        "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/azure%2Fv\" & version, \"releaseTimestamp\": releaseTimestamp} }"
+      ]
+    },
+    "giantswarm-releases-capv": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capv/releases.json",
+      "format": "json",
+      "transformTemplates": [
+        "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/vsphere%2Fv\" & version, \"releaseTimestamp\": releaseTimestamp} }"
+      ]
+    },
+    "giantswarm-releases-capvcd": {
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capvcd/releases.json",
+      "format": "json",
+      "transformTemplates": [
+        "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/cloud-director%2Fv\" & version, \"releaseTimestamp\": releaseTimestamp} }"
+      ]
+    }
+  },
   "customManagers": [
     {
       "customType": "regex",
@@ -195,9 +225,8 @@
         "cluster_release_provider: capa\n(\\s+)?AWS_RELEASE_TAG \\?= aws\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capa",
-      "packageNameTemplate": "giantswarm/releases",
-      "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^aws/v(?<version>.*)$"
+      "packageNameTemplate": "capa",
+      "datasourceTemplate": "custom.giantswarm-releases-capa"
     },
     {
       "customType": "regex",
@@ -213,9 +242,8 @@
         "cluster_release_provider: capz\n(\\s+)?AZURE_RELEASE_TAG \\?= azure\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capz",
-      "packageNameTemplate": "giantswarm/releases",
-      "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^azure/v(?<version>.*)$"
+      "packageNameTemplate": "capz",
+      "datasourceTemplate": "custom.giantswarm-releases-capz"
     },
     {
       "customType": "regex",
@@ -231,9 +259,8 @@
         "cluster_release_provider: capv\n(\\s+)?VSPHERE_RELEASE_TAG \\?= vsphere\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capv",
-      "packageNameTemplate": "giantswarm/releases",
-      "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^vsphere/v(?<version>.*)$"
+      "packageNameTemplate": "capv",
+      "datasourceTemplate": "custom.giantswarm-releases-capv"
     },
     {
       "customType": "regex",
@@ -249,9 +276,9 @@
         "cluster_release_provider: capvcd\n(\\s+)?CLOUDDIRECTOR_RELEASE_TAG \\?= cloud-director\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capvcd",
-      "packageNameTemplate": "giantswarm/releases",
-      "datasourceTemplate": "github-releases",
-      "extractVersionTemplate": "^cloud-director/v(?<version>.*)$"
+      "packageNameTemplate": "capvcd",
+      "datasourceTemplate": "custom.giantswarm-releases-capvcd"
     }
-  ],
+  ]
 }
+```
