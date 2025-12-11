@@ -130,28 +130,28 @@
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capa/releases.json",
       "format": "json",
       "transformTemplates": [
-        "{ \"sourceUrl\": null, \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
+        "{ \"sourceUrl\": \"https://github.com/giantswarm/releases\", \"sourceDirectory\": \"capa\", \"releases\": releases.{\"version\": version, \"gitRef\": \"aws/v\" & version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
       ]
     },
     "giantswarm-releases-capz": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/azure/releases.json",
       "format": "json",
       "transformTemplates": [
-        "{ \"sourceUrl\": null, \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
+        "{ \"sourceUrl\": \"https://github.com/giantswarm/releases\", \"sourceDirectory\": \"azure\", \"releases\": releases.{\"version\": version, \"gitRef\": \"azure/v\" & version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
       ]
     },
     "giantswarm-releases-capv": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/vsphere/releases.json",
       "format": "json",
       "transformTemplates": [
-        "{ \"sourceUrl\": null, \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
+        "{ \"sourceUrl\": \"https://github.com/giantswarm/releases\", \"sourceDirectory\": \"vsphere\", \"releases\": releases.{\"version\": version, \"gitRef\": \"vsphere/v\" & version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
       ]
     },
     "giantswarm-releases-capvcd": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/cloud-director/releases.json",
       "format": "json",
       "transformTemplates": [
-        "{ \"sourceUrl\": null, \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
+        "{ \"sourceUrl\": \"https://github.com/giantswarm/releases\", \"sourceDirectory\": \"cloud-director\", \"releases\": releases.{\"version\": version, \"gitRef\": \"cloud-director/v\" & version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
       ]
     }
   },
