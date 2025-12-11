@@ -39,7 +39,8 @@
       // Create separate major releases for CAPA,CAPZ,CAPV and CAPVCD
       "matchDepNames": ["capa", "capz", "capv", "capvcd"],
       "separateMajorMinor": true,
-      "separateMultipleMajor": true
+      "separateMultipleMajor": true,
+      "fetchChangeLogs": "off"
     },
     {
       // Force opsctl to use strict semver to ignore the old sha-based releases from 2018
@@ -127,28 +128,28 @@
   },
   "customDatasources": {
     "giantswarm-releases-capa": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capa/releases.json?cacheBust=3",
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capa/releases.json?cacheBust=5",
       "format": "json",
       "transformTemplates": [
         "{ \"releases\": [ $.releases.{ \"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/aws/v\" & version, \"releaseTimestamp\": releaseTimestamp } ] }"
       ]
     },
     "giantswarm-releases-capz": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/azure/releases.json?cacheBust=3",
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/azure/releases.json?cacheBust=5",
       "format": "json",
       "transformTemplates": [
         "{ \"releases\": [ $.releases.{ \"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/azure/v\" & version, \"releaseTimestamp\": releaseTimestamp } ] }"
       ]
     },
     "giantswarm-releases-capv": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/vsphere/releases.json?cacheBust=3",
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/vsphere/releases.json?cacheBust=5",
       "format": "json",
       "transformTemplates": [
         "{ \"releases\": [ $.releases.{ \"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/vsphere/v\" & version, \"releaseTimestamp\": releaseTimestamp } ] }"
       ]
     },
     "giantswarm-releases-capvcd": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/cloud-director/releases.json?cacheBust=3",
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/cloud-director/releases.json?cacheBust=5",
       "format": "json",
       "transformTemplates": [
         "{ \"releases\": [ $.releases.{ \"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/cloud-director/v\" & version, \"releaseTimestamp\": releaseTimestamp } ] }"
