@@ -125,20 +125,6 @@
       "**/gotk-components.yml",
     ]
   },
-  "customDatasources": {
-    "capa": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capa/releases.json",
-      },
-    "capz": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/azure/releases.json",
-    },
-    "capv": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/vsphere/releases.json",
-    },
-    "capvcd": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/cloud-director/releases.json",
-    },
-  },
   "customManagers": [
     {
       "customType": "regex",
@@ -209,8 +195,9 @@
         "cluster_release_provider: capa\n(\\s+)?AWS_RELEASE_TAG \\?= aws\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capa",
-      "versioningTemplate": "semver-coerced",
-      "datasourceTemplate": "custom.capa",
+      "packageNameTemplate": "giantswarm/releases",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^aws/v(?<version>.*)$"
     },
     {
       "customType": "regex",
@@ -226,8 +213,9 @@
         "cluster_release_provider: capz\n(\\s+)?AZURE_RELEASE_TAG \\?= azure\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capz",
-      "versioningTemplate": "semver-coerced",
-      "datasourceTemplate": "custom.capz",
+      "packageNameTemplate": "giantswarm/releases",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^azure/v(?<version>.*)$"
     },
     {
       "customType": "regex",
@@ -243,8 +231,9 @@
         "cluster_release_provider: capv\n(\\s+)?VSPHERE_RELEASE_TAG \\?= vsphere\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capv",
-      "versioningTemplate": "semver-coerced",
-      "datasourceTemplate": "custom.capv",
+      "packageNameTemplate": "giantswarm/releases",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^vsphere/v(?<version>.*)$"
     },
     {
       "customType": "regex",
@@ -260,8 +249,9 @@
         "cluster_release_provider: capvcd\n(\\s+)?CLOUDDIRECTOR_RELEASE_TAG \\?= cloud-director\\/v(?<currentValue>\\S+)\n",
       ],
       "depNameTemplate": "capvcd",
-      "versioningTemplate": "semver-coerced",
-      "datasourceTemplate": "custom.capvcd",
+      "packageNameTemplate": "giantswarm/releases",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^cloud-director/v(?<version>.*)$"
     }
   ],
 }
