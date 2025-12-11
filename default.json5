@@ -130,28 +130,28 @@
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capa/releases.json",
       "format": "json",
       "transformTemplates": [
-        "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
+        "{ \"sourceUrl\": null, \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
       ]
     },
     "giantswarm-releases-capz": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/azure/releases.json",
       "format": "json",
       "transformTemplates": [
-        "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
+        "{ \"sourceUrl\": null, \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
       ]
     },
     "giantswarm-releases-capv": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/vsphere/releases.json",
       "format": "json",
       "transformTemplates": [
-        "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
+        "{ \"sourceUrl\": null, \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
       ]
     },
     "giantswarm-releases-capvcd": {
       "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/cloud-director/releases.json",
       "format": "json",
       "transformTemplates": [
-        "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
+        "{ \"sourceUrl\": null, \"releases\": releases.{\"version\": version, \"changelogUrl\": changelogUrl, \"releaseTimestamp\": releaseTimestamp} }"
       ]
     }
   },
