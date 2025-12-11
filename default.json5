@@ -134,21 +134,21 @@
       ]
     },
     "giantswarm-releases-capz": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capz/releases.json",
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/azure/releases.json",
       "format": "json",
       "transformTemplates": [
         "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/azure%2Fv\" & version, \"releaseTimestamp\": releaseTimestamp} }"
       ]
     },
     "giantswarm-releases-capv": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capv/releases.json",
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/vsphere/releases.json",
       "format": "json",
       "transformTemplates": [
         "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/vsphere%2Fv\" & version, \"releaseTimestamp\": releaseTimestamp} }"
       ]
     },
     "giantswarm-releases-capvcd": {
-      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/capvcd/releases.json",
+      "defaultRegistryUrlTemplate": "https://raw.githubusercontent.com/giantswarm/releases/master/cloud-director/releases.json",
       "format": "json",
       "transformTemplates": [
         "{ \"releases\": releases.{\"version\": version, \"changelogUrl\": \"https://github.com/giantswarm/releases/releases/tag/cloud-director%2Fv\" & version, \"releaseTimestamp\": releaseTimestamp} }"
