@@ -3,6 +3,11 @@
   "extends": [
     "config:recommended" // https://docs.renovatebot.com/presets-config/#configrecommended
   ],
+  // Force Conventional Commits style for PR titles and commit messages
+  // (e.g. "chore(deps): update dependency foo to v1.2.3").
+  "semanticCommits": "enabled",
+  "semanticCommitType": "chore",
+  "semanticCommitScope": "deps",
   // The labels to add to the GitHub PRs
   "labels": ["dependencies", "renovate"],
   // The dependency dashboard is an issue created in the repo that tracks the
