@@ -119,6 +119,11 @@
       "description": "Exclude helm packages with major version v4",
       "matchDepNames": ["/\\bhelm\\b/"],
       "allowedVersions": "!/^v?4\\./"
+    },
+    {
+      "description": "Wait 14 days after publication before updating npm (JS/TS) dependencies to avoid pulling in compromised or quickly-yanked releases.",
+      "matchManagers": ["npm"],
+      "minimumReleaseAge": "14 days"
     }
   ],
 
