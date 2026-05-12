@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 however this project does not use Semantic Versioning and there are no releases.
 Instead this file uses a date-based structure.
 
+## 2026-05-12
+
+### Added
+
+- Delay npm (JS/TS) dependency updates by 14 days after publication via `minimumReleaseAge`.
+
 ## 2026-05-08
 
 ### Added
