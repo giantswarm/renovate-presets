@@ -6,6 +6,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 however this project does not use Semantic Versioning and there are no releases.
 Instead this file uses a date-based structure.
 
+## 2026-05-13
+
+### Changed
+
+- `lang-go` and `lang-python` now extend `default`, which means they inherit and override our default configuration.
+
 ## 2026-05-12
 
 ### Added
