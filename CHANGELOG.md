@@ -6,6 +6,16 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 however this project does not use Semantic Versioning and there are no releases.
 Instead this file uses a date-based structure.
 
+## 2026-05-27
+
+### Changed
+
+- `helpers:pinGitHubActionDigestsToSemver` added to `extends` in `default.json5`. All hand-authored GitHub Actions in consuming repos will be pinned to commit SHAs by Renovate (tag-only pins are a supply-chain risk per CWE-829). `zz_generated.*` workflows are already in `ignorePaths` and are unaffected.
+
+### Removed
+
+- `actions/setup-go` from `ignoreDeps` so it is version-managed and digest-pinned alongside other actions.
+
 ## 2026-05-13
 
 ### Changed

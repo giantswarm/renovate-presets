@@ -1,7 +1,8 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended" // https://docs.renovatebot.com/presets-config/#configrecommended
+    "config:recommended", // https://docs.renovatebot.com/presets-config/#configrecommended
+    "helpers:pinGitHubActionDigestsToSemver" // pin all hand-authored GitHub Actions to commit SHAs
   ],
   // Force Conventional Commits style for PR titles and commit messages
   // (e.g. "chore(deps): update dependency foo to v1.2.3").
@@ -26,7 +27,6 @@
     ".github/workflows/pre_commit_*.yaml"
   ],
   "ignoreDeps": [
-    "actions/setup-go",
     "github.com/imdario/mergo",
     "zricethezav/gitleaks-action"
   ],
