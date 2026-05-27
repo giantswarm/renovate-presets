@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 however this project does not use Semantic Versioning and there are no releases.
 Instead this file uses a date-based structure.
 
+## Unreleased
+
+### Added
+
+- `default.json5` now includes a vendir `customManager` that tracks upstream refs annotated with `# renovate: datasource=... depName=...` in `vendir.yml` files. Only fires where the annotation is present; no-op everywhere else. A matching `packageRule` routes vendir updates through `prCreation: approval` on a `renovate/vendir/` branch prefix. Repos carrying an inline vendir manager can drop their local copy.
+- `lang-python.json5` now applies a 14-day `minimumReleaseAge` for PyPI dependencies, matching the existing npm supply-chain delay in `default.json5`.
+
+### Changed
+
+- `customer-management-clusters.json5` now extends `default.json5` instead of `config:recommended`. The previously inlined `labels`, `dependencyDashboard`, `ignorePaths`, `ignoreDeps`, and helm-values `customManager` are removed, as `default.json5` already provides equivalent or broader coverage. The weekly `schedule` is retained.
+- `renovate.json5` (the preset repo's own config) migrated from `config:recommended` to `default.json5`.
+
 ## 2026-05-27
 
 ### Changed

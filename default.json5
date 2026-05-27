@@ -124,6 +124,13 @@
       "description": "Wait 14 days after publication before updating npm (JS/TS) dependencies to avoid pulling in compromised or quickly-yanked releases.",
       "matchManagers": ["npm"],
       "minimumReleaseAge": "14 days"
+    },
+    {
+      // vendir.yml upstream refs are proxied through an approval gate so that
+      // changes to synced vendor content can be reviewed before a branch is created.
+      "matchFileNames": ["vendir.yml"],
+      "branchPrefix": "renovate/vendir/",
+      "prCreation": "approval"
     }
   ],
 
@@ -219,6 +226,16 @@
       "managerFilePatterns": ["/^Dockerfile$/"],
       "matchStrings": [
         "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sARG .+_VER=(?<currentValue>.*)\\s"
+      ],
+      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
+    },
+    {
+      // vendir.yml files use inline annotations to declare the datasource/dep.
+      // Only fires where the annotation comment is present — no-op elsewhere.
+      "customType": "regex",
+      "managerFilePatterns": ["/(^|/)vendir\\.yml$/"],
+      "matchStrings": [
+        "# renovate: datasource=(?<datasource>[^\\s]+) depName=(?<depName>[^\\n]+?)(?: versioning=(?<versioning>[^\\s]+))?\\n\\s+ref: (?<currentValue>[^\\n]+)"
       ],
       "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}",
     },
