@@ -7,6 +7,11 @@
     {
       "matchUpdateTypes": ["patch", "pin", "digest"],
       "automerge": true
+    },
+    {
+      "description": "Wait 14 days after publication before updating PyPI (Python) dependencies to avoid pulling in compromised or quickly-yanked releases.",
+      "matchDatasources": ["pypi"],
+      "minimumReleaseAge": "14 days"
     }
   ],
 }
