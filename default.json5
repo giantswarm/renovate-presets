@@ -41,6 +41,12 @@
       "automerge": true
     },
     {
+      "description": "Skip SHA pinning for Giant Swarm-owned GitHub Actions; we trust our own repos.",
+      "matchManagers": ["github-actions"],
+      "matchDepNames": ["/^giantswarm\\//"],
+      "pinDigests": false
+    },
+    {
       // Create separate major releases for CAPA,CAPZ,CAPV and CAPVCD
       "matchDepNames": ["capa", "capz", "capv", "capvcd"],
       "separateMajorMinor": true,
