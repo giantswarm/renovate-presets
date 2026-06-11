@@ -8,6 +8,10 @@ Instead this file uses a date-based structure.
 
 ## Unreleased
 
+### Changed
+
+- The Dockerfile `# renovate: datasource=... depName=...` annotation manager in `default.json5` now matches `ARG` names ending in `_VERSION` in addition to `_VER`.
+
 ## 2026-05-27
 
 ### Added
