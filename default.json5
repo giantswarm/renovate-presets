@@ -6,7 +6,7 @@
   ],
 
   // Run renovate only during weekends.
-  "schedule": ["* * * * 0,6"]
+  "schedule": ["* * * * 0,6"],
 
   // Force Conventional Commits style for PR titles and commit messages
   // (e.g. "chore(deps): update dependency foo to v1.2.3").
