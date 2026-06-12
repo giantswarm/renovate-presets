@@ -8,6 +8,10 @@ Instead this file uses a date-based structure.
 
 ## Unreleased
 
+### Changed
+
+- Set renovate to run only on weekends
+
 ## 2026-05-27
 
 ### Added
