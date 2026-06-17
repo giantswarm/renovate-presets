@@ -104,6 +104,19 @@
       "automerge": true
     },
     {
+      "description": "Allow Renovate to lookup the changelog for codecov CircleCI orb updates",
+      "matchManagers": ["circleci"],
+      "matchPackageNames": ["codecov/codecov"],
+      "sourceUrl": "https://github.com/codecov/codecov-circleci-orb"
+    },
+    {
+      "description": "Automerge patch & minor updates for codecov CircleCI orb",
+      "matchManagers": ["circleci"],
+      "matchPackageNames": ["codecov/codecov"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": true
+    },
+    {
       // Allow renovate to lookup the changelog for aws-cli
       "matchDepNames": ["amazon/aws-cli"],
       "sourceUrl": "https://github.com/aws/aws-cli",
