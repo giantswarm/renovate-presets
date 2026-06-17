@@ -184,7 +184,7 @@
       "customType": "regex",
       "managerFilePatterns": [
         "/.*y[a]?ml(.template)?$/",
-        "/Dockerfile$/",
+        "/Dockerfile(\\.\\w+)?$/",
         "/^Makefile\\..+\\.mk$/",
       ],
       "matchStrings": [
@@ -207,7 +207,7 @@
       "managerFilePatterns": [
         "/.*y[a]?ml$(.template)?/",
         "/.*sh$/",
-        "/Dockerfile$/",
+        "/Dockerfile(\\.\\w+)?$/",
         "/^Makefile\\..+\\.mk$/",
       ],
       "matchStrings": [
@@ -229,7 +229,7 @@
     },
     {
       "customType": "regex",
-      "managerFilePatterns": ["/^Dockerfile$/"],
+      "managerFilePatterns": ["/^Dockerfile(\\.\\w+)?$/"],
       "matchStrings": [
         "renovate: datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sARG .+_VER(?:SION)?=(?<currentValue>.*)\\s"
       ],
