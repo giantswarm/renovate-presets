@@ -1,0 +1,10 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "packageRules": [
+    {
+      "description": "ATS (app-test-suite) test deps are owned centrally in giantswarm/github (languages/python/Pipfile) and rolled out via align-files. Do not open per-repo update PRs (incl. vulnerability alerts for this test-only stack).",
+      "matchFileNames": ["**/ats/Pipfile", "**/ats/Pipfile.lock"],
+      "enabled": false,
+    },
+  ],
+}
