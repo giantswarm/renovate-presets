@@ -8,6 +8,10 @@ Instead this file uses a date-based structure.
 
 ## Unreleased
 
+### Added
+
+- `deprecated.json5` preset for deprecated / low-maintenance repos: disables all routine updates (major/minor/patch/pin/digest/bump) and keeps only security/vulnerability remediation. Meant to be extended alongside `default.json5`. The `giantswarm/github` align-files workflow applies it automatically to repos marked `lifecycle: deprecated` that have `gen.ci.generate`.
+
 ### Changed
 
 - The Dockerfile `# renovate: datasource=... depName=...` annotation manager in `default.json5` now matches `ARG` names ending in `_VERSION` in addition to `_VER`.

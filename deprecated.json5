@@ -1,0 +1,17 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  // Deprecated / low-maintenance repos: disable routine dependency updates and
+  // keep only security/vulnerability remediation. Avoids wasting effort
+  // rescuing bumps a repo on its way out will never benefit from, while still
+  // surfacing CVEs. Extend this in addition to default.json5; do not re-enable
+  // routine updates without removing the deprecation.
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest", "bump"],
+      "enabled": false,
+    },
+  ],
+  "vulnerabilityAlerts": {
+    "enabled": true,
+  },
+}

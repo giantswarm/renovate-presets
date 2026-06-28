@@ -42,6 +42,7 @@ Multiple presets can be specified and they build on top of each other.
 | `lang-python.json5` | Python-specific additions: automerge patch/pin/digest, 14-day PyPI release age delay. Extends `default.json5`. |
 | `flux.json5` | Enables the Flux manager for `gotk-components.yaml` files. |
 | `customer-management-clusters.json5` | Base config for customer management-cluster GitOps repos. Extends `default.json5` with a weekly Thursday schedule. |
+| `deprecated.json5` | Deprecated / low-maintenance repos: disables all routine updates (major/minor/patch/pin/digest/bump) and keeps only security/vulnerability remediation. Extend in addition to `default.json5`. Applied automatically to repos marked `lifecycle: deprecated` with `gen.ci.generate` in `giantswarm/github`. |
 | `disable-ansible.json5` | Disables the Ansible manager. |
 | `disable-helm-values.json5` | Disables the helm-values manager. |
 | `disable-helmv3.json5` | Disables the helmv3 manager. |
