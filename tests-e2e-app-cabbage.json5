@@ -15,7 +15,7 @@
   "packageRules": [
     {
       "description": "Group dependencies from E2E tests",
-      "matchFileNames": ["tests/e2e/**"],
+      "matchFileNames": ["tests/**"],
       "groupName": "E2E tests dependencies",
     }
   ],

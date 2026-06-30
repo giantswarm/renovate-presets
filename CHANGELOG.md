@@ -16,6 +16,7 @@ Instead this file uses a date-based structure.
 
 - The Dockerfile `# renovate: datasource=... depName=...` annotation manager in `default.json5` now matches `ARG` names ending in `_VERSION` in addition to `_VER`.
 - All three Dockerfile `managerFilePatterns` in `default.json5` now match `Dockerfile` and `Dockerfile.<ext>` (e.g. `Dockerfile.debian`, `Dockerfile.alpine`). Previously only the bare `Dockerfile` filename was scanned.
+- Include all tests in Cabbage rules
 
 ## 2026-05-27
 
