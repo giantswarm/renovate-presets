@@ -18,6 +18,10 @@ Instead this file uses a date-based structure.
 - All three Dockerfile `managerFilePatterns` in `default.json5` now match `Dockerfile` and `Dockerfile.<ext>` (e.g. `Dockerfile.debian`, `Dockerfile.alpine`). Previously only the bare `Dockerfile` filename was scanned.
 - Include all tests in Cabbage rules
 
+### Removed
+
+- Remove PR creation approval requirement for vendir updates.
+
 ## 2026-05-27
 
 ### Added

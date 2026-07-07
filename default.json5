@@ -145,11 +145,8 @@
       "minimumReleaseAge": "14 days"
     },
     {
-      // vendir.yml upstream refs are proxied through an approval gate so that
-      // changes to synced vendor content can be reviewed before a branch is created.
       "matchFileNames": ["vendir.yml"],
-      "branchPrefix": "renovate/vendir/",
-      "prCreation": "approval"
+      "branchPrefix": "renovate/vendir/"
     }
   ],
 
