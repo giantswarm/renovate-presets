@@ -15,6 +15,7 @@ Instead this file uses a date-based structure.
 
 ### Changed
 
+- `lang-node.json5`: the rule's intent is stated once in its Renovate `description` field rather than a comment block.
 - The Dockerfile `# renovate: datasource=... depName=...` annotation manager in `default.json5` now matches `ARG` names ending in `_VERSION` in addition to `_VER`.
 - All three Dockerfile `managerFilePatterns` in `default.json5` now match `Dockerfile` and `Dockerfile.<ext>` (e.g. `Dockerfile.debian`, `Dockerfile.alpine`). Previously only the bare `Dockerfile` filename was scanned.
 - Include all tests in Cabbage rules
