@@ -10,6 +10,7 @@ Instead this file uses a date-based structure.
 
 ### Added
 
+- `lang-node.json5` preset for Node repos. Renovate's own `group:nodeJs` sets a `commitMessageTopic` but no `groupName`, so each place a repo pins Node gets a separate PR, all titled "update Node.js to vX" — and merging one alone splits the version CI runs from the version the image ships. This groups them into a single PR. Extended automatically by `devctl gen renovate` for `language: node` repos.
 - `deprecated.json5` preset for deprecated / low-maintenance repos: disables all routine updates (major/minor/patch/pin/digest/bump) and keeps only security/vulnerability remediation. Meant to be extended alongside `default.json5`. The `giantswarm/github` align-files workflow applies it automatically to repos marked `lifecycle: deprecated` that have `gen.ci.generate`.
 
 ### Changed
