@@ -5,18 +5,7 @@
   ],
   "packageRules": [
     {
-      // Renovate's own group:nodeJs (pulled in by config:recommended) sets a
-      // commitMessageTopic but no groupName, so every place a repo pins Node
-      // gets its own PR -- all titled "update Node.js to vX". A Node repo
-      // typically pins the same version two or three times (a .nvmrc, a
-      // Dockerfile `FROM node:`, a setup-node step), and merging one of those
-      // PRs alone splits the version CI runs from the version the image ships.
-      //
-      // Grouping them means one PR that moves every pin together. .nvmrc is the
-      // preferred pin: Renovate's built-in nvm manager owns it, setup-node
-      // reads it via node-version-file, and `devctl gen circleci` renders the
-      // CI executor image and its cache-key salt from it.
-      "description": "Move every Node.js version pin in one PR.",
+      "description": "Move every Node.js version pin (.nvmrc, a Dockerfile `FROM node:`, a setup-node step) in one PR, which Renovate's own group:nodeJs does not do.",
       "groupName": "Node.js",
       "matchDatasources": ["docker", "node-version"],
       "matchPackageNames": ["node"],
