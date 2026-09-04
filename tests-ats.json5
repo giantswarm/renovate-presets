@@ -2,8 +2,8 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "packageRules": [
     {
-      "description": "ATS (app-test-suite) test deps are owned centrally in giantswarm/github (languages/python/Pipfile) and rolled out via align-files. Do not open per-repo update PRs (incl. vulnerability alerts for this test-only stack).",
-      "matchFileNames": ["**/ats/Pipfile", "**/ats/Pipfile.lock"],
+      "description": "ATS (app-test-suite) test deps are owned centrally in giantswarm/devctl (pkg/gen/input/ats) and generated into chart repos by align-files: tests/ats/Pipfile for app-test-suite <= 0.15, tests/ats/pyproject.toml + uv.lock for app-test-suite 1.x. Do not open per-repo update PRs (incl. vulnerability alerts for this test-only stack).",
+      "matchFileNames": ["**/ats/Pipfile", "**/ats/Pipfile.lock", "**/ats/pyproject.toml", "**/ats/uv.lock"],
       "enabled": false,
     },
   ],
