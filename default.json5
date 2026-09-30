@@ -59,7 +59,10 @@
       "versioning": "semver"
     },
     {
-      // Allow updating deps that use `-gs1` style suffix
+      // Allow updating deps that use a `-gs1` (or bare `-gs`) fork suffix.
+      // `ignoreUnstable: false` alone would also propose every other
+      // pre-release (`-rc.N`, `-alpha.N`, `-gs-<sha>` commit builds), so
+      // `allowedVersions` admits only stable versions and fork builds.
       "matchPackageNames": [
         "giantswarm/aws-cloud-controller-manager-app",
         "giantswarm/aws-cloud-controller-manager",
@@ -91,6 +94,7 @@
         "quay.io/giantswarm/dex",
       ],
       "ignoreUnstable": false,
+      "allowedVersions": "/^v?\\d+\\.\\d+\\.\\d+(-gs\\d*)?$/",
     },
     {
       "description": "Allow Renovate to lookup the changelog for architect-orb updates",
