@@ -91,7 +91,7 @@
         "giantswarm/sloth-app",
         "gsoci.azurecr.io/giantswarm/go-socks5-proxy",
         "gsoci.azurecr.io/giantswarm/cloud-provider-for-cloud-director",
-        "quay.io/giantswarm/dex",
+        "gsoci.azurecr.io/giantswarm/dex",
       ],
       "ignoreUnstable": false,
       "allowedVersions": "/^v?\\d+\\.\\d+\\.\\d+(-gs\\d*)?$/",

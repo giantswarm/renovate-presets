@@ -15,6 +15,7 @@ Instead this file uses a date-based structure.
 
 ### Changed
 
+- `default.json5`: look up `dex` versions on `gsoci.azurecr.io` rather than `quay.io`. retagger no longer mirrors to `quay.io`, and the quay copy is already behind - it stops at `v2.43.1-gs1` while gsoci has up to `-gs5`, so Renovate was silently missing dex updates.
 - `default.json5`: the `-gsN` fork-suffix rule (`ignoreUnstable: false`) now admits only stable and `-gsN` / `-gs` versions through `allowedVersions`. It used to propose every pre-release of those packages as well, including the `vX.Y.Z-rc.N` release candidates every merge now cuts.
 - `tests-ats.json5`: also disable per-repo updates for the uv layout of the centrally owned app-test-suite test dependencies (`**/ats/pyproject.toml`, `**/ats/uv.lock`, emitted by devctl for app-test-suite 1.x repos), and point the description at giantswarm/devctl, where the canonical files live.
 - `lang-node.json5`: the rule's intent is stated once in its Renovate `description` field rather than a comment block.
