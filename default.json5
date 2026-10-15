@@ -139,8 +139,8 @@
       "automerge": true,
     },
     {
-      "description": "Exclude helm packages with major version v4",
-      "matchDepNames": ["/\\bhelm\\b/"],
+      "description": "Hold Helm itself below major version v4: `helm`, `*/helm` and the `helm.sh/helm/vN` Go module",
+      "matchDepNames": ["/(^|\\/)helm(\\/v\\d+)?$/"],
       "allowedVersions": "!/^v?4\\./"
     },
     {
