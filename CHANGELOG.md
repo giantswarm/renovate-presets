@@ -15,6 +15,7 @@ Instead this file uses a date-based structure.
 
 ### Changed
 
+- `default.json5`: look up `dex` versions on `gsoci.azurecr.io` rather than `quay.io`. retagger no longer mirrors to `quay.io`, and the quay copy is already behind - it stops at `v2.43.1-gs1` while gsoci has up to `-gs5`, so Renovate was silently missing dex updates.
 - `default.json5`: the `# repo: owner/name` annotation manager also matches a `tag:` key, so Flux `OCIRepository` (and `GitRepository`) manifests pinning `spec.ref.tag` get update PRs.
 - `default.json5`: the helm v4 hold matches Helm itself only: `helm`, `*/helm` and the `helm.sh/helm/vN` Go module. `\bhelm\b` also caught `helm-unittest/helm-unittest`, `helm/chart-testing`, `helm/kind-action` and `norwoodj/helm-docs`, whose own v4 has nothing to do with Helm's.
 - `default.json5`: the `-gsN` fork-suffix rule (`ignoreUnstable: false`) now admits only stable and `-gsN` / `-gs` versions through `allowedVersions`. It used to propose every pre-release of those packages as well, including the `vX.Y.Z-rc.N` release candidates every merge now cuts.
