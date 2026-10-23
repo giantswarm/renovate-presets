@@ -15,6 +15,7 @@ Instead this file uses a date-based structure.
 
 ### Changed
 
+- `default.json5`: the `# repo: owner/name` annotation manager also matches a following `tag:` key, so Flux `OCIRepository` (and `GitRepository`) manifests pinning `spec.ref.tag` get update PRs. Until now the annotation above a `tag:` line was silently ignored, because only `version:`, `appVersion:`, `value:`, `default:`, `image:` and `*release:` keys were recognised.
 - `default.json5`: the helm v4 hold matches Helm itself only: `helm`, `*/helm` and the `helm.sh/helm/vN` Go module. `\bhelm\b` also caught `helm-unittest/helm-unittest`, `helm/chart-testing`, `helm/kind-action` and `norwoodj/helm-docs`, whose own v4 has nothing to do with Helm's.
 - `default.json5`: the `-gsN` fork-suffix rule (`ignoreUnstable: false`) now admits only stable and `-gsN` / `-gs` versions through `allowedVersions`. It used to propose every pre-release of those packages as well, including the `vX.Y.Z-rc.N` release candidates every merge now cuts.
 - `tests-ats.json5`: also disable per-repo updates for the uv layout of the centrally owned app-test-suite test dependencies (`**/ats/pyproject.toml`, `**/ats/uv.lock`, emitted by devctl for app-test-suite 1.x repos), and point the description at giantswarm/devctl, where the canonical files live.
