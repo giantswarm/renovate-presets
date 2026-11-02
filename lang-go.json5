@@ -58,4 +58,9 @@
     "gomodTidy",
     "gomodUpdateImportPaths",
   ],
+  // gomod disables indirect modules by default, so a CVE in one (e.g.
+  // golang.org/x/net) gets no PR. OSV alerts (osv.dev) raise a [security]
+  // PR for vulnerable modules, indirect ones included. Experimental;
+  // needs Renovate >= 44.134.3 (renovatebot/renovate#46761).
+  "osvVulnerabilityAlerts": true,
 }
