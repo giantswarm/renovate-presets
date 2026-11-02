@@ -38,7 +38,7 @@ Multiple presets can be specified and they build on top of each other.
 | Preset | Purpose |
 |--------|---------|
 | `default.json5` | Base config for all repos. Includes semantic commits, labels, dependency dashboard, ignorePaths/ignoreDeps, architect-orb automerge, CAPI release datasources, `repo:`/`registry:` regex managers for YAML/Dockerfile/Makefiles, vendir manager, and npm/vendir PR policies. |
-| `lang-go.json5` | Go-specific additions: groups k8s/CAPI/AWS SDK/test modules, `gomodTidy`, `gomodUpdateImportPaths`. Extends `default.json5`. |
+| `lang-go.json5` | Go-specific additions: groups k8s/CAPI/AWS SDK/test modules, `gomodTidy`, `gomodUpdateImportPaths`, OSV (osv.dev) vulnerability alerts so indirect modules get `[security]` PRs. Extends `default.json5`. |
 | `lang-python.json5` | Python-specific additions: automerge patch/pin/digest, 14-day PyPI release age delay. Extends `default.json5`. |
 | `lang-node.json5` | Node-specific additions: groups every Node.js version pin (`.nvmrc`, a Dockerfile `FROM node:`, a `setup-node` step) into one PR, which Renovate's own `group:nodeJs` does not do. Extends `default.json5`. |
 | `flux.json5` | Enables the Flux manager for `gotk-components.yaml` files. |
