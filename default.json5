@@ -13,7 +13,7 @@
   "labels": ["dependencies", "renovate"],
   // The dependency dashboard is an issue created in the repo that tracks the
   // dependencies that Renovate will work againse
-  "dependencyDashboard": true,
+  "dependencyDashboard": { "enabled": true },
   "assigneesFromCodeOwners": true,
 
   // These limits are the defaults values but included here for visibility
