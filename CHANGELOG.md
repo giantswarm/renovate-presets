@@ -15,6 +15,7 @@ Instead this file uses a date-based structure.
 
 ### Changed
 
+- `default.json5`: `dependencyDashboard` uses the object form (`{ "enabled": true }`) that Renovate 44.232.0 introduced. Older Renovate versions reject it.
 - `lang-go.json5`: enable `osvVulnerabilityAlerts`. Renovate's gomod manager disables indirect modules by default, so a CVE in one (golang.org/x/net v0.61.0, CVE-2026-78661 and CVE-2026-97045) got no PR and failed nancy in ~30 Go repos at once. With OSV alerts Renovate opens a `[security]` PR for vulnerable modules, indirect ones included. Experimental in Renovate; indirect modules need 44.134.3 or later.
 - `default.json5`: look up `dex` versions on `gsoci.azurecr.io` rather than `quay.io`. retagger no longer mirrors to `quay.io`, and the quay copy is already behind - it stops at `v2.43.1-gs1` while gsoci has up to `-gs5`, so Renovate was silently missing dex updates.
 - `default.json5`: the `# repo: owner/name` annotation manager also matches a `tag:` key, so Flux `OCIRepository` (and `GitRepository`) manifests pinning `spec.ref.tag` get update PRs.
