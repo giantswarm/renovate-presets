@@ -36,4 +36,7 @@ jobs:
           done
           exit ${EXIT_CODE}
       - name: Validate Renovate config
-        run: npx --yes --package renovate -- renovate-config-validator --strict *.json5
+        run: |
+          # repo: renovatebot/renovate
+          RENOVATE_VERSION=44.249.1
+          npx --yes --package "renovate@${RENOVATE_VERSION}" -- renovate-config-validator --strict *.json5
