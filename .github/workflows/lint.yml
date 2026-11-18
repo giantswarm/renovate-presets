@@ -8,11 +8,11 @@ jobs:
     name: Debug info
     runs-on: ubuntu-26.04
     steps:
+      # Through env, so the shell never evaluates the context's contents.
       - name: Print github context JSON
-        run: |
-          cat <<EOF
-          ${{ toJson(github) }}
-          EOF
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
   validate:
     name: Validate
     runs-on: ubuntu-26.04

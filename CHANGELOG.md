@@ -30,6 +30,10 @@ Instead this file uses a date-based structure.
 
 - Remove PR creation approval requirement for vendir updates.
 
+### Fixed
+
+- The Lint workflow prints the `github` context through an environment variable so the shell cannot evaluate its contents.
+
 ## 2026-05-27
 
 ### Added
