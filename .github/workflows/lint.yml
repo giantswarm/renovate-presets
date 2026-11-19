@@ -38,5 +38,5 @@ jobs:
       - name: Validate Renovate config
         run: |
           # repo: renovatebot/renovate
-          RENOVATE_VERSION=44.252.6
+          RENOVATE_VERSION=44.252.8
           npx --yes --package "renovate@${RENOVATE_VERSION}" -- renovate-config-validator --strict *.json5
